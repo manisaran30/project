@@ -1,0 +1,30 @@
+name: Deploy Application
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: "3.9"
+
+      - name: Install Dependencies
+        run: pip install -r requirements.txt
+
+      - name: Create .env file
+        run: |
+          echo "GOOGLE_API_KEY=${{ secrets.SECRET_API_KEY }}" > .env
+          echo "MONGO_URI=${{ secrets.MONGO_URI }}" >> .env
+
+      - name: Run Application
+        run: python app.py
