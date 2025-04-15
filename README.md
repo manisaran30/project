@@ -1,5 +1,5 @@
 chat Summarization API 🚀 
-A simple API for storing, retrieving, and summarizing chat conversations using FastAPI, MongoDB, and Gemini AI.  
+A simple API for storing, retrieving, and summarizing chat conversations using FastAPI, MongoDB, and Gemini AI(https://chatsummary.streamlit.app/).  
 
 ---
 
